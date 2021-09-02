@@ -40,7 +40,7 @@ public interface Context {
     // queryBlock return a block by blockid
     public Contract.Block queryBlock(String blockid);
 
-    // transfer transfer an amount fo a address
+    // transfer start an in-contract transfer, transfer an amount to a address
     public void transfer(String to, BigInteger amount);
 
     // transferAmount get transfer amount of an contract call

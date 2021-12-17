@@ -73,6 +73,10 @@ class ContextImpl implements Context {
 
     @Override
     public String caller() {
+        String caller = callArgs.getCaller();
+        if (caller != null && !caller.isEmpty()){
+            return caller;
+        }
         return this.callArgs.getInitiator();
     }
 

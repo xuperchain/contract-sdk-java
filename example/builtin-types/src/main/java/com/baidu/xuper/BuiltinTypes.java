@@ -180,8 +180,7 @@ public class BuiltinTypes implements Contract {
 
         for (int i = 0; i < tx.getTxOutputsCount(); i++) {
             ctx.log("tx_output: " + i + ", amount: " + tx.getTxOutputs(i).getAmount());
-            ctx.log("tx_output: " + i + ", to_addr: " + tx.getTxOutputs(i).getToAddr().toStringUtf8()
-            );
+            ctx.log("tx_output: " + i + ", to_addr: " + tx.getTxOutputs(i).getToAddr().toStringUtf8());
         }
     }
 

@@ -50,6 +50,7 @@ public class BuiltinTypes implements Contract {
 
     @ContractMethod
     public Response authRequire(Context ctx) {
+
         List<String> authRequireList = ctx.authRequire();
         printAuthRequire(ctx, authRequireList);
 
@@ -171,30 +172,15 @@ public class BuiltinTypes implements Contract {
         }
 
         for (int i = 0; i < tx.getTxInputsCount(); i++) {
-            ctx.log(
-                    "tx_input: " + i + ", ref_txid: " + tx.getTxInputs(i).getRefTxid()
-            );
-            ctx.log(
-                    "tx_input: " + i + ", ref_offset: " + tx.getTxInputs(i).getRefOffset()
-            );
-            ctx.log(
-                    "tx_input: " +
-                            i +
-                            ", from_addr: " +
-                            tx.getTxInputs(i).getFromAddr().toStringUtf8()
-            );
+            ctx.log("tx_input: " + i + ", ref_txid: " + tx.getTxInputs(i).getRefTxid());
+            ctx.log("tx_input: " + i + ", ref_offset: " + tx.getTxInputs(i).getRefOffset());
+            ctx.log("tx_input: " + i + ", from_addr: " + tx.getTxInputs(i).getFromAddr().toStringUtf8());
             ctx.log("tx_input: " + i + ", amount: " + tx.getTxInputs(i).getAmount());
         }
 
         for (int i = 0; i < tx.getTxOutputsCount(); i++) {
-            ctx.log(
-                    "tx_output: " + i + ", amount: " + tx.getTxOutputs(i).getAmount()
-            );
-            ctx.log(
-                    "tx_output: " +
-                            i +
-                            ", to_addr: " +
-                            tx.getTxOutputs(i).getToAddr().toStringUtf8()
+            ctx.log("tx_output: " + i + ", amount: " + tx.getTxOutputs(i).getAmount());
+            ctx.log("tx_output: " + i + ", to_addr: " + tx.getTxOutputs(i).getToAddr().toStringUtf8()
             );
         }
     }

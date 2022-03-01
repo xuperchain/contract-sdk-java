@@ -124,10 +124,16 @@ public class BuiltinTypes implements Contract {
     @ContractMethod
     public Response Call(Context ctx) {
         byte[] module = ctx.args().get("module");
+        String moduleStr;
+        if (module==null || module.length==0){
+            moduleStr = "native";
+        }else{
+            moduleStr = new String(module);
+        }
         byte[] contract = ctx.args().get("contract");
         byte[] method = ctx.args().get("method");
         return ctx.call(
-                new String(module),
+                moduleStr,
                 new String(contract),
                 new String(method),
                 ctx.args()
